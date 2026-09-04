@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TRIÉA — The Pair, Rethought.</title>
+  <meta name="description" content="TRIÉA is a New York jewelry brand rethinking the traditional pair. Everyday essentials and statement earrings, every style comes as three — your pair, plus your spare." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory: #F6F0E8;
+      --ivory-2: #E7D8C8;
+      --oxblood: #8B6548;
+      --oxblood-2: #684A35;
+      --espresso: #3A2D25;
+      --taupe: #CBB9A7;
+      --line: rgba(58,45,37,.14);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #F8F3EC 0%, #F3EADF 100%);
+      color: var(--espresso);
+      font-family: "Manrope", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: absolute;
+      z-index: 10;
+      top: 0; left: 0; right: 0;
+      padding: 28px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .wordmark {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: .08em;
+      font-weight: 500;
+    }
+
+    .nav-link {
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 4px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 46% 54%;
+      align-items: stretch;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #F8F3EC 0%, #F3EADF 100%);
+    }
+
+    .hero:before,
+    .hero:after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(139,101,72,.16);
+      border-radius: 50%;
+      width: 410px;
+      height: 410px;
+      pointer-events: none;
+    }
+    .hero:before { left: -180px; bottom: -160px; }
+    .hero:after { right: -170px; top: 120px; }
+
+    .hero-copy {
+      max-width: 620px;
+      width: 100%;
+      text-align: left;
+      position: relative;
+      z-index: 2;
+      padding: 150px 9vw 90px 7vw;
+      align-self: center;
+    }
+
+    .hero-image {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      border-left: 1px solid rgba(58,45,37,.08);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-image:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(246,240,232,.12), transparent 24%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+
+    .eyebrow:after {
+      content: "";
+      display: inline-block;
+      width: 34px;
+      height: 1px;
+      margin-left: 12px;
+      vertical-align: middle;
+      background: currentColor;
+      opacity: .35;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -.025em;
+    }
+
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(72px, 8vw, 128px);
+      line-height: .78;
+      letter-spacing: -.035em;
+    }
+
+    .hero-tag {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(27px, 4vw, 48px);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: clamp(14px, 1.7vw, 18px);
+      letter-spacing: .03em;
+      margin-bottom: 34px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 30px;
+      background: rgba(255,255,255,.22);
+      color: var(--espresso);
+      border: 1px solid rgba(58,45,37,.42);
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      transition: .2s ease;
+      border-radius: 0;
+    }
+
+    .cta:hover {
+      background: var(--espresso);
+      color: #FBF6EF;
+      border-color: var(--espresso);
+    }
+
+    section { position: relative; border-top: 1px solid rgba(58,45,37,.08); }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      min-height: 760px;
+    }
+
+    .split.reverse {
+      grid-template-columns: .92fr 1.08fr;
+    }
+
+    .panel {
+      padding: 90px clamp(30px, 7vw, 100px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .dark {
+      background: #9B765A;
+      color: #FBF6EF;
+    }
+
+    .espresso {
+      background: #5A4638;
+      color: #FBF6EF;
+    }
+
+    .light {
+      background: #F6F0E8;
+      color: var(--espresso);
+    }
+
+    .big-heading {
+      font-size: clamp(52px, 7vw, 102px);
+      line-height: .9;
+      margin: 20px 0 28px;
+    }
+
+    .copy {
+      max-width: 540px;
+      font-size: 15px;
+    }
+
+    .copy strong { font-weight: 600; }
+
+    .visual {
+      min-height: 620px;
+      position: relative;
+      overflow: hidden;
+      background: var(--ivory-2);
+    }
+
+
+    .visual.why-three-photo {
+      background: #E7D8C8;
+    }
+
+    .visual.why-three-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 620px;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .visual.rings {
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 52% 45%, rgba(255,255,255,.72), transparent 38%),
+        linear-gradient(145deg, #F5EBDD, var(--ivory-2));
+    }
+
+    .rings-wrap {
+      position: relative;
+      width: min(70%, 460px);
+      aspect-ratio: 1 / 1;
+    }
+
+    .ring {
+      position: absolute;
+      width: 48%;
+      aspect-ratio: 1/1;
+      border: 1px solid rgba(139,101,72,.45);
+      border-radius: 50%;
+    }
+
+    .ring:nth-child(1) { left: 8%; top: 31%; }
+    .ring:nth-child(2) { left: 31%; top: 12%; }
+    .ring:nth-child(3) { left: 50%; top: 38%; }
+
+    .caption {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      opacity: .7;
+    }
+
+    .editorial-visual {
+      display: grid;
+      place-items: end start;
+      padding: 36px;
+      background:
+        linear-gradient(145deg, rgba(196,161,124,.92), rgba(128,94,68,.86)),
+        #B78A63;
+      color: #FBF6EF;
+    }
+
+    .editorial-mark {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(70px, 10vw, 150px);
+      line-height: .72;
+      letter-spacing: -.05em;
+      opacity: .92;
+    }
+
+    .founder-visual {
+      background:
+        linear-gradient(180deg, rgba(47,41,35,.01), rgba(110,74,47,.13)),
+        #EADCC9;
+      display: grid;
+      place-items: center;
+      padding: 40px;
+    }
+
+    .portrait-placeholder {
+      width: min(78%, 430px);
+      aspect-ratio: 4/5;
+      border: 1px solid rgba(139,101,72,.16);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 30px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 28px;
+      font-style: italic;
+      color: rgba(110,74,47,.62);
+    }
+
+    .quote {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(27px, 3vw, 42px);
+      line-height: 1.08;
+      font-style: italic;
+      margin: 10px 0 28px;
+    }
+
+    .first100 {
+      background: #8B6548;
+      color: #FBF6EF;
+      padding: 110px 0 90px;
+      text-align: center;
+    }
+
+    .first100 h2 {
+      font-size: clamp(64px, 10vw, 140px);
+      line-height: .78;
+      margin: 18px 0 24px;
+    }
+
+    .first100 p {
+      max-width: 620px;
+      margin: 0 auto 34px;
+      font-size: 15px;
+    }
+
+    .benefits {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      margin-bottom: 34px;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .signup {
+      display: flex;
+      max-width: 620px;
+      margin: 0 auto;
+      border: 1px solid rgba(251,246,239,.68);
+    }
+
+    .signup input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      background: transparent;
+      color: #FBF6EF;
+      padding: 17px 18px;
+      font: inherit;
+      outline: none;
+    }
+
+    .signup input::placeholder { color: rgba(244,239,232,.62); }
+
+    .signup button {
+      border: 0;
+      border-left: 1px solid rgba(244,239,232,.65);
+      background: #F6F0E8;
+      color: var(--oxblood);
+      padding: 0 20px;
+      font: inherit;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .form-note {
+      margin-top: 12px !important;
+      font-size: 11px !important;
+      opacity: .65;
+    }
+
+    footer {
+      background: var(--oxblood);
+      color: #FBF6EF;
+      border-top: 1px solid rgba(244,239,232,.16);
+      padding: 26px 0 32px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: .8;
+    }
+
+    @media (max-width: 820px) {
+      .shell { width: min(calc(100% - 28px), var(--max)); }
+      .nav { padding: 22px 0; }
+      .wordmark { font-size: 25px; }
+
+      .hero {
+        min-height: 92vh;
+        padding-top: 110px;
+      }
+      h1 { font-size: clamp(82px, 25vw, 130px); }
+      .hero:before, .hero:after { width: 260px; height: 260px; }
+
+      .split,
+      .split.reverse {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .split.reverse .visual { order: 2; }
+      .split.reverse .panel { order: 1; }
+
+      .panel { padding: 76px 28px; }
+      .visual { min-height: 480px; }
+      .big-heading { font-size: clamp(56px, 18vw, 92px); }
+
+      .first100 { padding: 88px 24px 70px; }
+      .signup {
+        flex-direction: column;
+        border: 0;
+        gap: 10px;
+      }
+      .signup input {
+        border: 1px solid rgba(251,246,239,.68);
+        min-height: 54px;
+      }
+      .signup button {
+        border: 0;
+        min-height: 54px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="shell nav-inner">
+      <a class="wordmark" href="#top">TRIÉA</a>
+      <a class="nav-link" href="#first100">Join The First 100</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <div class="eyebrow">New York · Coming Soon</div>
+        <h1>TRIÉA</h1>
+        <div class="hero-tag">The pair, rethought.</div>
+        <div class="hero-sub">Three earrings. One pair + one spare.</div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:18px;opacity:.72;margin:-20px 0 32px;">For the everyday, the statement, and everything between.</div>
+        <a class="cta" href="#first100">Join The First 100</a>
+      </div>
+      <div class="hero-image">
+        <img src="triea-pearl-earrings.png" alt="Three TRIÉA pearl earrings styled in warm natural light">
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="panel dark">
+        <div class="eyebrow">The idea</div>
+        <h2 class="big-heading">WHY<br>THREE?</h2>
+        <div class="copy">
+          <p>You lose one earring, and suddenly the pair you loved is unwearable.</p>
+          <p>We thought there should be a better way.</p>
+          <p><strong>Every TRIÉA style comes as three.</strong><br>Two to wear. One to keep.</p>
+        </div>
+      </div>
+
+      <div class="visual why-three-photo">
+        <img src="triea-package-sneak-peek.png" alt="TRIÉA packaging sneak peek">
+      </div>
+    </section>
+
+    <section class="split reverse">
+      <div class="visual editorial-visual">
+        <div>
+          <div class="eyebrow">The collection</div>
+          <div class="editorial-mark">01<br>→<br>03</div>
+        </div>
+      </div>
+
+      <div class="panel light">
+        <div class="eyebrow">The collection</div>
+        <h2 class="big-heading">EVERYDAY<br>TO STATEMENT.</h2>
+        <div class="copy">
+          <p>From delicate everyday pieces to statement earrings that finish the look, TRIÉA is designed to move with you — from ordinary mornings to unforgettable nights.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="panel espresso">
+        <div class="eyebrow">How TRIÉA started</div>
+        <h2 class="big-heading">IT STARTED<br>WITH AN IDEA.</h2>
+        <div class="copy">
+          <p>After losing one earring from a pair I loved one too many times, I remember waking up one morning, looking at my husband and saying:</p>
+          <div class="quote">“Why don’t I just create my own?”</div>
+          <p>The more I thought about it, the more I realized how many women I knew had experienced the exact same thing — a jewelry box filled with single earrings from pairs they once loved.</p>
+          <p>That’s when a small frustration started to feel like an idea worth pursuing.</p>
+          <p>TRIÉA was created to do things a little differently: <strong>three earrings instead of two — your pair, plus your spare.</strong></p>
+          <p><strong>— Alina, Founder</strong></p>
+        </div>
+      </div>
+
+      <div class="visual founder-visual">
+        <div class="portrait-placeholder">
+          Founder portrait<br>or editorial TRIÉA image
+        </div>
+      </div>
+    </section>
+
+    <section class="first100" id="first100">
+      <div class="shell">
+        <div class="eyebrow">Pre-launch access</div>
+        <h2>THE FIRST<br>100.</h2>
+        <p>Be among the first to experience TRIÉA. Join our founding list for early access to the debut collection and 15% off your first order.</p>
+
+        <div class="benefits">
+          <span>Early access</span>
+          <span>15% off first order</span>
+          <span>First look at the debut collection</span>
+        </div>
+
+        <!-- Replace the form action with your Formspree/Mailchimp/Klaviyo endpoint when ready. -->
+        <form class="signup" onsubmit="return trieaSignup(event)">
+          <input id="email" type="email" name="email" placeholder="Email address" aria-label="Email address" required />
+          <button type="submit">Join The First 100</button>
+        </form>
+        <p class="form-note" id="form-note">Preview mode — email collection can be connected before launch.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <span>TRIÉA · NEW YORK</span>
+      <span>Three earrings. One pair + one spare.</span>
+    </div>
+  </footer>
+
+  <script>
+    function trieaSignup(event) {
+      event.preventDefault();
+      const email = document.getElementById('email');
+      const note = document.getElementById('form-note');
+      if (!email.value) return false;
+      note.textContent = "You’re on the list — preview confirmation only.";
+      email.value = "";
+      return false;
+    }
+  </script>
+</body>
+</html>
